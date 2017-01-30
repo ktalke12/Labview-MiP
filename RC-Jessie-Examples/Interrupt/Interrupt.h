@@ -15,11 +15,11 @@
 #include <unistd.h>
 #include <math.h>
 #include "extcode.h"
-#include <useful_includes.h>
-#include <robotics_cape.h>
+#include <roboticscape-usefulincludes.h>
+#include <roboticscape.h>
 
 int Init();
-
+int Close();
 
 /*******************************************************************************
 *  Define_****_Event()
@@ -31,7 +31,9 @@ int Init();
 
 //int Define_Pause_Event(LVUserEventRef *eventRef);
 int Define_Pause_Event(void *eventRef);
+int Define_Pause_Release_Event(void *eventRef);
 int Define_Mode_Event(void *eventRef);
+int Define_Mode_Release_Event(void *eventRef);
 int Define_IMU_Event(void *eventRef);
 
 /*******************************************************************************
@@ -40,22 +42,19 @@ int Define_IMU_Event(void *eventRef);
 * Initialize the callback functions
 *******************************************************************************/
 int PauseEventFunc();
+int PauseReleaseEventFunc();
 int ModeEventFunc();
+int ModeReleaseEventFunc();
 int IMUEventFunc();
 
-
-
-int Close();
-
-int turn_off_green();
-int turn_off_red();
-
 /*******************************************************************************
-*  On_Pause_Press(), On_Mode_Press(), IMU_Callback()
+*  On_Pause_Press(), On_Pause_Release(), On_Mode_Press(),On_Mode_Release(), IMU_Callback()
 *
-*  setup the callback functions
+*  setup the callback function wrappers
 *******************************************************************************/
 
 int On_Pause_Press();
+int On_Pause_Release();
 int On_Mode_Press();
+int On_Mode_Release();
 int IMU_Callback();

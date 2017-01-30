@@ -8,6 +8,14 @@
 	</Item>
 	<Item Name="Close.vi" Type="VI" URL="../VIs/Close.vi"/>
 	<Item Name="Define IMU Event.vi" Type="VI" URL="../VIs/Define IMU Event.vi"/>
+	<Item Name="Define Mode Event.vi" Type="VI" URL="../VIs/Define Mode Event.vi"/>
+	<Item Name="Define Mode Release Event.vi" Type="VI" URL="../VIs/Define Mode Release Event.vi"/>
+	<Item Name="Define Pause Event.vi" Type="VI" URL="../VIs/Define Pause Event.vi"/>
+	<Item Name="Define Pause Release Event.vi" Type="VI" URL="../VIs/Define Pause Release Event.vi"/>
 	<Item Name="IMU Callback.vi" Type="VI" URL="../VIs/IMU Callback.vi"/>
 	<Item Name="Init.vi" Type="VI" URL="../VIs/Init.vi"/>
+	<Item Name="On Mode Press.vi" Type="VI" URL="../VIs/On Mode Press.vi"/>
+	<Item Name="On Mode Release.vi" Type="VI" URL="../VIs/On Mode Release.vi"/>
+	<Item Name="On Pause Press.vi" Type="VI" URL="../VIs/On Pause Press.vi"/>
+	<Item Name="On Pause Release.vi" Type="VI" URL="../VIs/On Pause Release.vi"/>
 </Library>

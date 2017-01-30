@@ -13,15 +13,19 @@
 #include <unistd.h>
 #include <math.h>
 #include "extcode.h"
-#include <useful_includes.h>
-#include <robotics_cape.h>
+#include <roboticscape-usefulincludes.h>
+#include <roboticscape.h>
 
-static void *handle;
+
+void *handle;
 typedef MgErr (_FUNCC* lvUserEvent_t)(LVUserEventRef,void*);
 //Define a global Labview User Event reference 
 LVUserEventRef Pause_LabViewEventRef;
+LVUserEventRef Pause_Release_LabViewEventRef;
 LVUserEventRef Mode_LabViewEventRef;
+LVUserEventRef Mode__Release_LabViewEventRef;
 LVUserEventRef IMU_LabViewEventRef;
+
 
 
 
@@ -33,6 +37,10 @@ int Init()
 	funcPtr_tdf func_ptr;
 	*/
 
+	if (NULL != handle){
+		handle=NULL;
+	}
+
 	int error_code;
 	// Get handle to DLL
 	handle = dlopen("/usr/local/natinst/labview/liblvrt.so.14.0",RTLD_LAZY);
@@ -42,6 +50,7 @@ int Init()
 		//fprintf(stderr,"Error getting .so handle: %s\n",strerror(error_code));
 		return error_code;
 	}
+	
 
 	return 0;
 }
@@ -54,7 +63,22 @@ int Init()
 *******************************************************************************/
 int Define_Pause_Event(LVUserEventRef *eventRef)
 {
-	Pause_LabViewEventRef = *eventRef;
+	if (Pause_LabViewEventRef==0){
+		Pause_LabViewEventRef = *eventRef;
+	}
+	return 0;
+}
+
+/*******************************************************************************
+* Define_Pause_Release_Event
+*
+* Name the global variable as a LV user event input
+*******************************************************************************/
+int Define_Pause_Release_Event(LVUserEventRef *eventRef)
+{
+	if (Pause_Release_LabViewEventRef==0){
+		Pause_Release_LabViewEventRef = *eventRef;
+	}
 	return 0;
 }
 /*******************************************************************************
@@ -64,7 +88,22 @@ int Define_Pause_Event(LVUserEventRef *eventRef)
 *******************************************************************************/
 int Define_Mode_Event(LVUserEventRef *eventRef)
 {
-	Mode_LabViewEventRef = *eventRef;
+	if (Mode_LabViewEventRef==0){
+		Mode_LabViewEventRef = *eventRef;
+	}
+	return 0;
+}
+
+/*******************************************************************************
+* Define_Mode_Release_Event
+*
+* Name the global variable as a LV user event input
+*******************************************************************************/
+int Define_Mode_Release_Event(LVUserEventRef *eventRef)
+{
+	if (Mode_Release_LabViewEventRef==0){
+		Mode_Release_LabViewEventRef = *eventRef;
+	}
 	return 0;
 }
 
@@ -77,7 +116,9 @@ int Define_Mode_Event(LVUserEventRef *eventRef)
 *******************************************************************************/
 int Define_IMU_Event(LVUserEventRef *eventRef)
 {
-	IMU_LabViewEventRef = *eventRef;
+	if (IMU_LabViewEventRef==0){
+		IMU_LabViewEventRef = *eventRef;
+	}
 	return 0;
 }
 
@@ -88,7 +129,7 @@ int Define_IMU_Event(LVUserEventRef *eventRef)
 *******************************************************************************/
 int PauseEventFunc()
 {
-	set_led(GREEN,1);
+
 	lvUserEvent_t PostLVUserEvent_Ptr = NULL;
 	//double randValue;
 	int BoolValue = 1;
@@ -97,37 +138,90 @@ int PauseEventFunc()
 
 	if (NULL != handle)
 	{
+		if (Pause_LabViewEventRef !=0)
+		{
 		//randValue  = (double) rand();
 		//BoolValue=  rand() & 1; 
 
 		// reference ptr to function symbol
-		PostLVUserEvent_Ptr = dlsym(handle,"PostLVUserEvent");
-		if (PostLVUserEvent_Ptr != NULL)
-		{
+			PostLVUserEvent_Ptr = dlsym(handle,"PostLVUserEvent");
+			if (PostLVUserEvent_Ptr != NULL)
+			{
 
 			
-			// call function through its pointer
-			//error_code = PostLVUserEvent(Pause_LabViewEventRef,&BoolValue);
-			error_code = PostLVUserEvent(Pause_LabViewEventRef,&BoolValue);
+				// call function through its pointer
+				//error_code = PostLVUserEvent(Pause_LabViewEventRef,&BoolValue);
+				error_code = PostLVUserEvent_Ptr(Pause_LabViewEventRef,&BoolValue);
 
-			return error_code;
+				return error_code;
 
-		}
-		else
-		{
-			error_code = errno;
-			fprintf(stderr,"Error getting symbol to fcn: %s\n",strerror(error_code));
-			return error_code;
-		}
-
+			}
+			else
+			{
+				error_code = errno;
+				fprintf(stderr,"Error getting symbol to fcn: %s\n",strerror(error_code));
+				return error_code;
+			}
+		}	
 	}
 
 	return 0;
 }
 
+
+/*******************************************************************************
+* PauseReleaseEventFunc()
+*
+* This posts a new user event to the Pause Release LV user event
+*******************************************************************************/
+int PauseReleaseEventFunc()
+{
+
+	lvUserEvent_t PostLVUserEvent_Ptr = NULL;
+	//double randValue;
+	int BoolValue = 1;
+
+	int error_code;
+
+	if (NULL != handle)
+	{
+		if (Pause_Release_LabViewEventRef !=0)
+		{
+		//randValue  = (double) rand();
+		//BoolValue=  rand() & 1; 
+
+		// reference ptr to function symbol
+			PostLVUserEvent_Ptr = dlsym(handle,"PostLVUserEvent");
+			if (PostLVUserEvent_Ptr != NULL)
+			{
+
+			
+				// call function through its pointer
+				//error_code = PostLVUserEvent(Pause_LabViewEventRef,&BoolValue);
+				error_code = PostLVUserEvent_Ptr(Pause_Release_LabViewEventRef,&BoolValue);
+
+				return error_code;
+
+			}
+			else
+			{
+				error_code = errno;
+				fprintf(stderr,"Error getting symbol to fcn: %s\n",strerror(error_code));
+				return error_code;
+			}
+		}	
+	}
+
+	return 0;
+}
+
+/*******************************************************************************
+* ModeEventFunc()
+*
+* This posts a new user event to the Mode LV user event
+*******************************************************************************/
 int ModeEventFunc()
 {
-	set_led(RED,1);
 	lvUserEvent_t PostLVUserEvent_Ptr = NULL;
 	//double randValue;
 	int BoolValue = 1;
@@ -136,32 +230,87 @@ int ModeEventFunc()
 
 	if (NULL != handle)
 	{
-		//randValue  = (double) rand();
-		//BoolValue=  rand() & 1; 
-
-		// reference ptr to function symbol
-		PostLVUserEvent_Ptr = dlsym(handle,"PostLVUserEvent");
-		if (PostLVUserEvent_Ptr != NULL)
+		if (Mode_LabViewEventRef !=0)
 		{
+			//randValue  = (double) rand();
+			//BoolValue=  rand() & 1; 
 
-			
-			// call function through its pointer
-			error_code = PostLVUserEvent(Mode_LabViewEventRef,&BoolValue);
+			// reference ptr to function symbol
+			PostLVUserEvent_Ptr = dlsym(handle,"PostLVUserEvent");
+			if (PostLVUserEvent_Ptr != NULL)
+			{
 
-			return error_code;
+				
+				// call function through its pointer
+				error_code = PostLVUserEvent_Ptr(Mode_LabViewEventRef,&BoolValue);
 
-		}
-		else
-		{
-			error_code = errno;
-			fprintf(stderr,"Error getting symbol to fcn: %s\n",strerror(error_code));
-			return error_code;
-		}
+				return error_code;
 
+			}
+			else
+			{
+				error_code = errno;
+				fprintf(stderr,"Error getting symbol to fcn: %s\n",strerror(error_code));
+				return error_code;
+			}
+		}	
 	}
 
 	return 0;
 }
+
+
+/*******************************************************************************
+* ModeReleaseEventFunc()
+*
+* This posts a new user event to the Mode Release LV user event
+*******************************************************************************/
+int ModeReleaseEventFunc()
+{
+	lvUserEvent_t PostLVUserEvent_Ptr = NULL;
+	//double randValue;
+	int BoolValue = 1;
+
+	int error_code;
+
+	if (NULL != handle)
+	{
+		if (Mode_Release_LabViewEventRef !=0)
+		{
+			//randValue  = (double) rand();
+			//BoolValue=  rand() & 1; 
+
+			// reference ptr to function symbol
+			PostLVUserEvent_Ptr = dlsym(handle,"PostLVUserEvent");
+			if (PostLVUserEvent_Ptr != NULL)
+			{
+
+				
+				// call function through its pointer
+				error_code = PostLVUserEvent_Ptr(Mode_Release_LabViewEventRef,&BoolValue);
+
+				return error_code;
+
+			}
+			else
+			{
+				error_code = errno;
+				fprintf(stderr,"Error getting symbol to fcn: %s\n",strerror(error_code));
+				return error_code;
+			}
+		}	
+	}
+
+	return 0;
+}
+
+
+/*******************************************************************************
+* IMUEventFunc()
+*
+* This posts a new user event to the IMU LV user event
+*******************************************************************************/
+
 
 int IMUEventFunc()
 {
@@ -173,28 +322,29 @@ int IMUEventFunc()
 
 	if (NULL != handle)
 	{
-		//randValue  = (double) rand();
-		//BoolValue=  rand() & 1; 
-
-		// reference ptr to function symbol
-		PostLVUserEvent_Ptr = dlsym(handle,"PostLVUserEvent");
-		if (PostLVUserEvent_Ptr != NULL)
+		if (IMU_LabViewEventRef !=0)
 		{
+			//randValue  = (double) rand();
+			//BoolValue=  rand() & 1; 
 
-			
-			// call function through its pointer
-			error_code = PostLVUserEvent(IMU_LabViewEventRef,&BoolValue);
+			// reference ptr to function symbol
+			PostLVUserEvent_Ptr = dlsym(handle,"PostLVUserEvent");
+			if (PostLVUserEvent_Ptr != NULL)
+			{
+				
+				// call function through its pointer
+				error_code = PostLVUserEvent_Ptr(IMU_LabViewEventRef,&BoolValue);
 
-			return error_code;
+				return error_code;
 
-		}
-		else
-		{
-			error_code = errno;
-			fprintf(stderr,"Error getting symbol to fcn: %s\n",strerror(error_code));
-			return error_code;
-		}
-
+			}
+			else
+			{
+				error_code = errno;
+				fprintf(stderr,"Error getting symbol to fcn: %s\n",strerror(error_code));
+				return error_code;
+			}
+		}	
 	}
 
 	return 0;
@@ -205,29 +355,39 @@ int Close()
 {
 	int error_code;
 	//free handle
-	error_code = dlclose(handle);
+	if (NULL != handle){
+		error_code = dlclose(handle);
+		handle=NULL;
+	}
+
+	if (Pause_LabViewEventRef !=0){
+		Pause_LabViewEventRef=0;
+	}
+	if (Pause_Release_LabViewEventRef !=0){
+		Pause_Release_LabViewEventRef=0;
+	}
+	if (Mode_LabViewEventRef!=0){
+		Mode_LabViewEventRef=0;
+	}	
+	if (Mode_Release_LabViewEventRef!=0){
+		Mode_Release_LabViewEventRef=0;
+	}	
+	if (IMU_LabViewEventRef!=0){
+		IMU_LabViewEventRef=0;
+	}	
+	set_mode_pressed_func(&null_func);
+	set_mode_released_func(&null_func);
+	set_pause_pressed_func(&null_func);
+	set_pause_released_func(&null_func);
+	set_imu_interrupt_func(&null_func);
+
+
 	return error_code;
 }
 
 
 /*******************************************************************************
-* turn_off_green/red
-*
-* Turn off functions for release interrupts
-*******************************************************************************/
-int turn_off_green(){
-	set_led(GREEN,0);
-	return 0;
-}
-
-
-int turn_off_red(){
-	set_led(RED,0);
-	return 0;
-}
-
-/*******************************************************************************
-* interrupt()
+* On_Pause_Press(), On_Mode_Press(), On_Pause_Release(), On_Mode_Release(), IMU_Callback()
 *
 * Initialize the callback functions for the interrupts
 *******************************************************************************/
@@ -235,27 +395,37 @@ int turn_off_red(){
 int On_Pause_Press(){
 
 	// set up button handlers
-	//set_pause_pressed_func(&turn_on_green);
 	set_pause_pressed_func(&PauseEventFunc);
-	set_pause_released_func(&turn_off_green);
 
 	return 0;
 }
 
+int On_Pause_Release(){
+
+	// set up button handlers
+	set_pause_released_func(&PauseReleaseEventFunc);
+
+	return 0;
+}
 int On_Mode_Press(){
 
 	// set up button handlers
-	//set_pause_pressed_func(&turn_on_green);
 	set_mode_pressed_func(&ModeEventFunc);
-	set_mode_released_func(&turn_off_red);
 
 	return 0;
 }
 
+int On_Mode_Release(){
+
+	// set up button handlers
+	set_mode_released_func(&ModeReleaseEventFunc);
+
+	return 0;
+}
+	
 int IMU_Callback(){
 
 	// set up button handlers
-	//set_pause_pressed_func(&turn_on_green);
 	set_imu_interrupt_func(&IMUEventFunc);
 
 
