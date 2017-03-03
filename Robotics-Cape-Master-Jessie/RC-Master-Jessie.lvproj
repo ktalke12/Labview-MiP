@@ -19,16 +19,8 @@
 					<Item Name="VIs" Type="Folder">
 						<Item Name="dir.mnu" Type="Document" URL="../Libroboticscape-Master-Jessie/LV/VIs/dir.mnu"/>
 					</Item>
-					<Item Name="dir.mnu" Type="Document" URL="../Libroboticscape-Master-Jessie/LV/dir.mnu"/>
 					<Item Name="libroboticscape.lvlib" Type="Library" URL="../Libroboticscape-Master-Jessie/LV/libroboticscape.lvlib"/>
-					<Item Name="Report.html" Type="Document" URL="../Libroboticscape-Master-Jessie/LV/Report.html"/>
 				</Item>
-				<Item Name="libroboticscape.so" Type="Document" URL="../Libroboticscape-Master-Jessie/libroboticscape.so"/>
-				<Item Name="roboticscape-defs.h" Type="Document" URL="../Libroboticscape-Master-Jessie/roboticscape-defs.h"/>
-				<Item Name="roboticscape-usefulincludes.h" Type="Document" URL="../Libroboticscape-Master-Jessie/roboticscape-usefulincludes.h"/>
-				<Item Name="roboticscape.h" Type="Document" URL="../Libroboticscape-Master-Jessie/roboticscape.h"/>
-				<Item Name="roboticscape.o" Type="Document" URL="../Libroboticscape-Master-Jessie/roboticscape.o"/>
-				<Item Name="stdint.h" Type="Document" URL="../Libroboticscape-Master-Jessie/stdint.h"/>
 			</Item>
 			<Item Name="LV Package" Type="Folder">
 				<Item Name="Robotics-Cape.vipb" Type="Document" URL="../LV Package/Robotics-Cape.vipb"/>

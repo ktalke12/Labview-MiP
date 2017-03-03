@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="0.6" Created_Date="2017-01-03 14:28:20" Modified_Date="2017-01-13 16:46:10" Creator="ktalke" Comments="" ID="27e3777eeffed8f8d46c8ebb6666bac0">
+<VI_Package_Builder_Settings Version="0.6" Created_Date="2017-01-03 14:28:20" Modified_Date="2017-03-03 15:38:53" Creator="ktalke" Comments="" ID="056479ba30f8dc0cff1a2777f64d4cbd">
   <Library_General_Settings>
     <Package_File_Name>UCSD_Robotics_Lab_lib_RC_Cape_Examples</Package_File_Name>
-    <Library_Version>1.0.0.4</Library_Version>
+    <Library_Version>1.0.1.2</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..</Library_Source_Folder>
     <Library_Output_Folder>.</Library_Output_Folder>
@@ -17,7 +17,7 @@
   </Library_General_Settings>
   <Advanced_Settings>
     <Package_Dependencies>
-      <Additional_External_Dependencies>ucsd_robotics_lab_robotics_cape &gt;=1.0.0.8</Additional_External_Dependencies>
+      <Additional_External_Dependencies>ucsd_robotics_lab_robotics_cape &gt;=1.0.1.3</Additional_External_Dependencies>
     </Package_Dependencies>
     <Custom_Action_VIs>
       <Pre-Build_VI/>
@@ -34,7 +34,7 @@
       <Copyright/>
       <Packager>Kurt Talke</Packager>
       <URL/>
-      <Release_Notes>Added Complementary Filter, Test_IMU, Test_DMP, Test_Barometer, calibrate gyro,Test_LED, Test_Motors,, Test_Encoder, Test_Buttons, Test_ADC, Check_Battery, Blink, and a bare_minimum .  All have been tested and working.</Release_Notes>
+      <Release_Notes>Adapted to new " rc_" naming convention.</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -104,12 +104,6 @@
         <Additional_Destination>false</Additional_Destination>
         <Additional_Destination_Index>0</Additional_Destination_Index>
       </Destination_Overrides>
-      <Destination_Overrides>
-        <Path>Interrupt</Path>
-        <Destination>0</Destination>
-        <Additional_Destination>false</Additional_Destination>
-        <Additional_Destination_Index>0</Additional_Destination_Index>
-      </Destination_Overrides>
       <Password_Overrides>
         <Path>.</Path>
         <Password/>
@@ -122,36 +116,6 @@
       </Namespace_Overrides>
       <Exclusions>
         <Path>RC-Jessie-Examples.lvproj</Path>
-      </Exclusions>
-      <Exclusions>
-        <Path>Interrupt/extcode.h</Path>
-      </Exclusions>
-      <Exclusions>
-        <Path>Interrupt/fundtypes.h</Path>
-      </Exclusions>
-      <Exclusions>
-        <Path>Interrupt/Interrupt.c</Path>
-      </Exclusions>
-      <Exclusions>
-        <Path>Interrupt/Interrupt.h</Path>
-      </Exclusions>
-      <Exclusions>
-        <Path>Interrupt/Interrupt.o</Path>
-      </Exclusions>
-      <Exclusions>
-        <Path>Interrupt/Interrupt.so</Path>
-      </Exclusions>
-      <Exclusions>
-        <Path>Interrupt/lv_epilog.h</Path>
-      </Exclusions>
-      <Exclusions>
-        <Path>Interrupt/lv_prolog.h</Path>
-      </Exclusions>
-      <Exclusions>
-        <Path>Interrupt/Makefile</Path>
-      </Exclusions>
-      <Exclusions>
-        <Path>Interrupt/platdefines.h</Path>
       </Exclusions>
       <Exclusions>
         <Path>LV Package</Path>
@@ -451,7 +415,7 @@
         <Path>..\Complementary Filter -DMP.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2561A0B3321DFE22AC7B8E044C89509B</GUID>
+      <GUID>243AE64645E44C9DB3FC726E0FFC3A30</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>

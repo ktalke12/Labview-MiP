@@ -6,39 +6,39 @@
 	<Item Name="subvi" Type="Folder">
 		<Item Name="Error Converter (ErrCode or Status).vi" Type="VI" URL="../subvi/Error Converter (ErrCode or Status).vi"/>
 	</Item>
-	<Item Name="bmp get altitude m.vi" Type="VI" URL="../VIs/bmp get altitude m.vi"/>
-	<Item Name="bmp get pressure pa.vi" Type="VI" URL="../VIs/bmp get pressure pa.vi"/>
-	<Item Name="bmp get temperature c.vi" Type="VI" URL="../VIs/bmp get temperature c.vi"/>
-	<Item Name="calibrate dsm routine.vi" Type="VI" URL="../VIs/calibrate dsm routine.vi"/>
-	<Item Name="calibrate gyro routine.vi" Type="VI" URL="../VIs/calibrate gyro routine.vi"/>
-	<Item Name="calibrate mag routine.vi" Type="VI" URL="../VIs/calibrate mag routine.vi"/>
-	<Item Name="cleanup cape.vi" Type="VI" URL="../VIs/cleanup cape.vi"/>
-	<Item Name="disable motors.vi" Type="VI" URL="../VIs/disable motors.vi"/>
-	<Item Name="enable motors.vi" Type="VI" URL="../VIs/enable motors.vi"/>
-	<Item Name="get adc volt.vi" Type="VI" URL="../VIs/get adc volt.vi"/>
-	<Item Name="get battery voltage.vi" Type="VI" URL="../VIs/get battery voltage.vi"/>
-	<Item Name="get dc jack voltage.vi" Type="VI" URL="../VIs/get dc jack voltage.vi"/>
-	<Item Name="get encoder pos.vi" Type="VI" URL="../VIs/get encoder pos.vi"/>
-	<Item Name="get led state.vi" Type="VI" URL="../VIs/get led state.vi"/>
-	<Item Name="get mode button.vi" Type="VI" URL="../VIs/get mode button.vi"/>
-	<Item Name="get pause button.vi" Type="VI" URL="../VIs/get pause button.vi"/>
-	<Item Name="get state.vi" Type="VI" URL="../VIs/get state.vi"/>
 	<Item Name="imu_config_t.ctl" Type="VI" URL="../controls/imu_config_t.ctl"/>
-	<Item Name="initialize barometer.vi" Type="VI" URL="../VIs/initialize barometer.vi"/>
-	<Item Name="initialize cape.vi" Type="VI" URL="../VIs/initialize cape.vi"/>
-	<Item Name="initialize imu dmp.vi" Type="VI" URL="../VIs/initialize imu dmp.vi"/>
-	<Item Name="initialize imu.vi" Type="VI" URL="../VIs/initialize imu.vi"/>
-	<Item Name="power off barometer.vi" Type="VI" URL="../VIs/power off barometer.vi"/>
-	<Item Name="power off imu.vi" Type="VI" URL="../VIs/power off imu.vi"/>
-	<Item Name="read accel data.vi" Type="VI" URL="../VIs/read accel data.vi"/>
-	<Item Name="read barometer.vi" Type="VI" URL="../VIs/read barometer.vi"/>
-	<Item Name="read gyro data.vi" Type="VI" URL="../VIs/read gyro data.vi"/>
-	<Item Name="read imu temp.vi" Type="VI" URL="../VIs/read imu temp.vi"/>
-	<Item Name="read mag data.vi" Type="VI" URL="../VIs/read mag data.vi"/>
-	<Item Name="set encoder pos.vi" Type="VI" URL="../VIs/set encoder pos.vi"/>
-	<Item Name="set led.vi" Type="VI" URL="../VIs/set led.vi"/>
-	<Item Name="set motor brake.vi" Type="VI" URL="../VIs/set motor brake.vi"/>
-	<Item Name="set motor free spin.vi" Type="VI" URL="../VIs/set motor free spin.vi"/>
-	<Item Name="set motor.vi" Type="VI" URL="../VIs/set motor.vi"/>
-	<Item Name="set state.vi" Type="VI" URL="../VIs/set state.vi"/>
+	<Item Name="rc_adc volt.vi" Type="VI" URL="../VIs/rc_adc volt.vi"/>
+	<Item Name="rc_battery voltage.vi" Type="VI" URL="../VIs/rc_battery voltage.vi"/>
+	<Item Name="rc_bmp get altitude m.vi" Type="VI" URL="../VIs/rc_bmp get altitude m.vi"/>
+	<Item Name="rc_bmp get pressure pa.vi" Type="VI" URL="../VIs/rc_bmp get pressure pa.vi"/>
+	<Item Name="rc_bmp get temperature.vi" Type="VI" URL="../VIs/rc_bmp get temperature.vi"/>
+	<Item Name="rc_calibrate dsm routine.vi" Type="VI" URL="../VIs/rc_calibrate dsm routine.vi"/>
+	<Item Name="rc_calibrate gyro routine.vi" Type="VI" URL="../VIs/rc_calibrate gyro routine.vi"/>
+	<Item Name="rc_calibrate mag routine.vi" Type="VI" URL="../VIs/rc_calibrate mag routine.vi"/>
+	<Item Name="rc_cleanup.vi" Type="VI" URL="../VIs/rc_cleanup.vi"/>
+	<Item Name="rc_dc jack voltage.vi" Type="VI" URL="../VIs/rc_dc jack voltage.vi"/>
+	<Item Name="rc_disable motors.vi" Type="VI" URL="../VIs/rc_disable motors.vi"/>
+	<Item Name="rc_enable motors.vi" Type="VI" URL="../VIs/rc_enable motors.vi"/>
+	<Item Name="rc_get encoder pos.vi" Type="VI" URL="../VIs/rc_get encoder pos.vi"/>
+	<Item Name="rc_get led.vi" Type="VI" URL="../VIs/rc_get led.vi"/>
+	<Item Name="rc_get mode button.vi" Type="VI" URL="../VIs/rc_get mode button.vi"/>
+	<Item Name="rc_get pause button.vi" Type="VI" URL="../VIs/rc_get pause button.vi"/>
+	<Item Name="rc_get state.vi" Type="VI" URL="../VIs/rc_get state.vi"/>
+	<Item Name="rc_initialize barometer.vi" Type="VI" URL="../VIs/rc_initialize barometer.vi"/>
+	<Item Name="rc_initialize imu dmp.vi" Type="VI" URL="../VIs/rc_initialize imu dmp.vi"/>
+	<Item Name="rc_initialize imu.vi" Type="VI" URL="../VIs/rc_initialize imu.vi"/>
+	<Item Name="rc_initialize.vi" Type="VI" URL="../VIs/rc_initialize.vi"/>
+	<Item Name="rc_power off barometer.vi" Type="VI" URL="../VIs/rc_power off barometer.vi"/>
+	<Item Name="rc_power off imu.vi" Type="VI" URL="../VIs/rc_power off imu.vi"/>
+	<Item Name="rc_read accel data.vi" Type="VI" URL="../VIs/rc_read accel data.vi"/>
+	<Item Name="rc_read barometer.vi" Type="VI" URL="../VIs/rc_read barometer.vi"/>
+	<Item Name="rc_read gyro data.vi" Type="VI" URL="../VIs/rc_read gyro data.vi"/>
+	<Item Name="rc_read imu temp.vi" Type="VI" URL="../VIs/rc_read imu temp.vi"/>
+	<Item Name="rc_read mag data.vi" Type="VI" URL="../VIs/rc_read mag data.vi"/>
+	<Item Name="rc_set encoder pos.vi" Type="VI" URL="../VIs/rc_set encoder pos.vi"/>
+	<Item Name="rc_set led.vi" Type="VI" URL="../VIs/rc_set led.vi"/>
+	<Item Name="rc_set motor brake.vi" Type="VI" URL="../VIs/rc_set motor brake.vi"/>
+	<Item Name="rc_set motor free spin.vi" Type="VI" URL="../VIs/rc_set motor free spin.vi"/>
+	<Item Name="rc_set motor.vi" Type="VI" URL="../VIs/rc_set motor.vi"/>
+	<Item Name="rc_set state.vi" Type="VI" URL="../VIs/rc_set state.vi"/>
 </Library>

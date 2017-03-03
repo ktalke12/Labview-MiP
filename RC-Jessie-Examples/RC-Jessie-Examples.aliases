@@ -1,8 +1,11 @@
 [BeagleBone Black  (Blue)]
-BeagleBone Black  (Blue) = "192.168.1.10"
+BeagleBone Black  (Blue) = "192.168.1.172"
 
-[BeagleBone Black (Gray)]
-BeagleBone Black (Gray) = "192.168.1.11"
+[BeagleBone Black (Plastic)]
+BeagleBone Black (Plastic) = "192.168.7.2"
+
+[BeagleBone Blue]
+BeagleBone Blue = "192.168.8.1"
 
 [My Computer]
 My Computer = "10.0.2.15"
