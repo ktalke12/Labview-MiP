@@ -1,0 +1,7 @@
+roboticscape (0.2.2) unstable; urgency=low
+
+    * move ldconfig out of makefile
+
+ -- James Strawson <james@strawsondesign.com>  Tue, 22 Nov 2016 21:11:00 +0000
+
+
