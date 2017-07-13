@@ -7,7 +7,7 @@ including Bare_minimum, Balance, Complementary Filters, and many test scripts.
   
 Robotics-Cape-Master-Jessie:  This folder includes all Labview source files (vis) wrappers of the c-code drivers.  
   
-Robotics_Cape_Installer-0.3.2 - 3.1.17:  Robotics Cape Software package that the Labview VIs were built around.  Newer versions of the software library, found at https://github.com/StrawsonDesign/Robotics_Cape_Installer, should work, but are not gauranteed to work.  
+Robotics_Cape_Installer-0.3.2 - 3.1.17:  Robotics Cape Software package that the Labview VIs were built around.  Newer versions of the software library, found at https://github.com/StrawsonDesign/Robotics_Cape_Installer/releases, should work, but are not gauranteed to work.  
   
 rc_interrupt:  This is a custom library which connects the interrupt routines built into the RC-cape library to Labview user events.  5 interrupts are supported: IMU, mode buttone release, mode button press, pause button press, pause button release  
   
