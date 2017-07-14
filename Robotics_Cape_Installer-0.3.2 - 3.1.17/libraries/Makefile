@@ -7,7 +7,7 @@ LINKER		:= gcc
 TOUCH		:= $(shell touch *)
 CWARNINGS	:= -Wall -Wextra
 # achitecture flags enables the NEON hardware SIMD floating point unit
-ARCFLAGS	:= -mfpu=neon -mfloat-abi=hard -march=armv7-a -mtune=cortex-a8 
+ARCFLAGS	:= -mfpu=neon -mfloat-abi=softfp -march=armv7-a -mtune=cortex-a8 
 # enable O3 optimization and vectorized math
 FFLAGS		:= -O3 -ffast-math -ftree-vectorize
 CFLAGS		:= -c -fPIC
