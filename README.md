@@ -22,16 +22,16 @@ BBB/L Installation steps:
 
 1)  Flash your BBB/L with the latest or preffered version of Debian (https://rcn-ee.com/rootfs/bb.org/testing/2017-03-07/iot/).   This repository should work with both 8.6 and 8.7 versions.  For 8.7 versions and later (~2/2017), the root password is locked down, and you will need to change the root password in order to install the Linx software below.  
 
-2)  Change root password if needed:  
+2)  Change root password if needed  (Linx need to be installed as the root user):  
 http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#i_take_full_responsibility_for_knowing_my_beagle_is_now_insecure
 
-3) Install Labview on the BBB using the Linx target configuration wizard (From Labview, goto Tools->MakerHub->Linx->Linx Target Configuration...).  the default address is 192.168.7.2, and use your new root/password to login.  Once Logged in, click on Install Software.  Note: you will need to get internet access to your BBB in order to install Labview.  
+3) Install Labview on the BBB using the Linx target configuration wizard (From Labview, goto Tools->MakerHub->Linx->Linx Target Configuration...).  the default address is 192.168.7.2 (or 192.168.8.1 if using the hotspot on the Blue), and use your new root/password to login.  Once Logged in, click on Install Software.  Note: you will need to get internet access to your BBB in order to install Labview.  
 
 Labview will create a Change root (chroot) on the BBB/L which is conceptually like a virtual machine.  This allows NI to control the user libraries, thus making configuration management easier, but development more challenging as basic user libraries are often missing
 
 4)  Install user libraries inside the Chroot:  SSH into your BBB/L from the terminal/putty. (#~ ssh root@192.168.7.2) and type in your password when prompted.  Then, enter the change root.  
 #~ sudo schroot -r -c lv.  
-Then update and install packagegropu core buildessentials using opkg (note this may take 5-10min):  
+Then update and install packagegroup core buildessentials using opkg (note this may take 5-10min):  
 #~ okpg update  
 #~ opkg install packagegroup-core-buildessential  
 
