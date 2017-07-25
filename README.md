@@ -43,11 +43,11 @@ Then update and install packagegroup core buildessentials using opkg (note this 
 #~  cp -r "Directory Name" /srv/chroot/labview/root
 
 7) Install the rc_interrupt and robotics cape inside the chroot:  Due to the chroot, these libraries need to be compiled manually, as the install scripts don't work inside the chroot.  Move into chroot as above, then go into the robotics cape libraries folder.  
-#~ cd ~ ~/Robotics_Cape_Installxxxx/libraries/  
+#~ cd ~'/Robotics_Cape_Installxxxx/libraries/  
 #~ make  
 #~ cp *.h /usr/include/  
 #~ cp *.so /usr/lib/  
-#~ cd ~/rc_interrupt/  
+#~ cd ~'/rc_interrupt/  
 #~ make  
 #~ cp *.h /usr/include/  
 #~ cp *.so /usr/lib/  
