@@ -22,7 +22,7 @@ BBB/L Installation steps:
 
 1)  Flash your BBB/L with the latest or preffered version of Debian (https://rcn-ee.com/rootfs/bb.org/testing/2017-03-07/iot/).   This repository should work with both 8.6 and 8.7 versions.  For 8.7 versions and later (~2/2017), the root password is locked down, and you will need to change the root password in order to install the Linx software below.  
 
-2)  Enable the robotics cape device tree:  This will enable the robotics cape on the BBB/L.
+2)  Enable the robotics cape device tree:  This will enable the robotics cape on the BBB/L.  
 #~ sudo configure_robotics_dt.sh
 #~ reboot
 
