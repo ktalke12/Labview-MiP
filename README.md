@@ -36,7 +36,7 @@ Then update and install packagegroup core buildessentials using opkg (note this 
 #~ opkg install packagegroup-core-buildessential  
 
 5)  Move rc_interrupt folder and Robotics_Cape_Installer_XXXX folder into the chroot:  (I recommend compiling the robotics cape installer outside the chroot as well).  Move the files onto the BBB using any ftp tool.  I recommend Filezilla for an easy graphical user experience.  Once the files are on the BBB's root, use the copy command to move them into the chroot (this must be done while outside the chroot):  
-#~  cp -r "Directory Name" /srv/schroot/labview/root
+#~  cp -r "Directory Name" /srv/chroot/labview/root
 
 6) Install the rc_interrupt and robotics cape inside the chroot:  Due to the chroot, these libraries need to be compiled manually, as the install scripts don't work inside the chroot.  Move into chroot as above, then go into the robotics cape libraries folder.  
 #~ cd /Robotics_Cape_Installxxxx/libraries  
