@@ -60,7 +60,7 @@ If the libraries install without errors, you can move the SO and header files in
 
 9)  Install the RC Cape vip to run in Labview 2014:  Open the VI package manager program.  Download and double click on the ucsd_robotics_lab_robotics_cape-1.0.1.3.vip, and install the package.  Repeat with ucsd_robotics_lab_lib_rc_cape_examples-1.0.1.1.vip.
 
-10) Create a new project.  Then right click on the project, and add a new target as a BeagleBone.  In the target options, type in the IP address of the beaglebone (192.168.7.2, or the wifi ip address).  Move one or all of the examples into the project.  Then, move them down to the target, and open the vi.  Run the .VI and dig around the VI to see how it works.  
+10) Create a new project.  Then right click on the project, and add a new target as a BeagleBone.  In the target options, type in the IP address of the beaglebone (192.168.7.2, or the wifi IP address).  Move one or all of the examples into the project.  Then, move them down to the target, and open the vi.  Run the .VI and dig around the VI to see how it works.  
 
 11)  Note:  whenever closing/ending a running VI, make sure to press the rectangular stop button on the front panel.  This will properly shutdown the board so that it can run properly again after without rebooting/restarting labview.  
 
