@@ -65,6 +65,7 @@ If the libraries install without errors, you can move the SO and header files in
 11)  Note:  whenever closing/ending a running VI, make sure to press the rectangular stop button on the front panel.  This will properly shutdown the board so that it can run properly again after without rebooting/restarting labview.  
 
 12)  Troubleshooting:  
-  A)  Can ping the BBB, but Labview fails to connect to target.  Solution:  Restart labview on the BBB.  This is possible by right clicking on the target, and restarting labview, or easier from the terminal/putty:  
+  A)  Can ping the BBB, but Labview fails to connect to target.  
+  Solution:  Restart labview on the BBB.  This is possible by right clicking on the target, and restarting labview, or easier from the terminal/putty:  
   #~  systemctl restart labview.service
   B)  Will add more when more problems arise
