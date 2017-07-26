@@ -67,5 +67,5 @@ If the libraries install without errors, you can move the SO and header files in
 12)  Troubleshooting:  
   A)  Can ping the BBB, but Labview fails to connect to target.  
   Solution:  Restart labview on the BBB.  This is possible by right clicking on the target, and restarting labview, or easier from the terminal/putty:  
-  #~  systemctl restart labview.service
+  #~  systemctl restart labview.service  
   B)  Will add more when more problems arise
