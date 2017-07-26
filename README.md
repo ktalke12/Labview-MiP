@@ -7,7 +7,7 @@ including Bare_minimum, Balance, Complementary Filters, and many test scripts.
   
 Robotics-Cape-Master-Jessie:  This folder includes all Labview source files (vis) wrappers of the c-code drivers.  
   
-Robotics_Cape_Installer-0.3.2 - 3.1.17:  Robotics Cape Software package that the Labview VIs were built around.  Newer versions of the software library, found at https://github.com/StrawsonDesign/Robotics_Cape_Installer/releases, should work, but are not gauranteed to work.  
+Robotics_Cape_Installer-0.3.2 - 3.1.17:  Robotics Cape Software package that the Labview VIs were built around.  Newer versions of the software library, found at https://github.com/StrawsonDesign/Robotics_Cape_Installer/releases, will work with 1 minor change explained below.  
   
 rc_interrupt:  This is a custom library which connects the interrupt routines built into the RC-cape library to Labview user events.  5 interrupts are supported: IMU, mode buttone release, mode button press, pause button press, pause button release  
   
@@ -39,10 +39,14 @@ Then update and install packagegroup core buildessentials using opkg (note this 
 #~ okpg update  
 #~ opkg install packagegroup-core-buildessential  
 
-6)  Move rc_interrupt folder and Robotics_Cape_Installer_XXXX folder into the chroot:  Move the files onto the BBB using any ftp tool.  I recommend Filezilla for an easy graphical user experience.  Once the files are on the BBB's root, use the copy command to move them into the chroot (this must be done while outside the chroot):  
+6)  Download the version of the Robotics cape given here, or the latest released version of the Robotics_Cape_Installer, found here:  https://github.com/StrawsonDesign/Robotics_Cape_Installer/releases.  
+In the released version downloaded, navigate to Robotics_Cape_Installer_x.x.x/libraries, and edit the "Makefile" as follows:  
+In the ARCFLAGS sections (line 9), change "-mfloat-abi=hard" to "-mfloat-abi=softfp"  
+
+7)  Move the rc_interrupt folder and Robotics_Cape_Installer_XXXX folder into the chroot:  Move the files onto the BBB using any ftp tool.  I recommend Filezilla for an easy graphical user experience.  Once the files are on the BBB's root, use the copy command to move them into the chroot (this must be done while outside the chroot):  
 #~  cp -r "Directory Name" /srv/chroot/labview/root
 
-7) Install the rc_interrupt and robotics cape inside the chroot:  Due to the chroot, these libraries need to be compiled manually, as the install scripts don't work inside the chroot.  Move into chroot as above, then go into the robotics cape libraries folder.  
+8) Install the rc_interrupt and robotics cape inside the chroot:  Due to the chroot, these libraries need to be compiled manually, as the install scripts don't work inside the chroot.  Move into chroot as above, then go into the robotics cape libraries folder.  
 #~ cd /Robotics_Cape_Installxxxx/libraries/  
 #~ make  
 #~ cp *.h /usr/include/  
@@ -54,6 +58,13 @@ Then update and install packagegroup core buildessentials using opkg (note this 
 
 If the libraries install without errors, you can move the SO and header files into the respective /usr/ folders, and the BBB will be setup and ready to use with Labview
 
-8)  Install the RC Cape vip to run in Labview:  Open the VI package manager program.  Download and double click on the ucsd_robotics_lab_robotics_cape-1.0.1.3.vip, and install the package.  Repeat with ucsd_robotics_lab_lib_rc_cape_examples-1.0.1.1.vip.
+9)  Install the RC Cape vip to run in Labview 2014:  Open the VI package manager program.  Download and double click on the ucsd_robotics_lab_robotics_cape-1.0.1.3.vip, and install the package.  Repeat with ucsd_robotics_lab_lib_rc_cape_examples-1.0.1.1.vip.
 
-9) Open one of the examples and see it working.  Dig around the VI to see how it works.
+10) Create a new project.  Then right click on the project, and add a new target as a BeagleBone.  In the target options, type in the IP address of the beaglebone (192.168.7.2, or the wifi ip address).  Move one or all of the examples into the project.  Then, move them down to the target, and open the vi.  Run the .VI and dig around the VI to see how it works.  
+
+11)  Note:  whenever closing/ending a running VI, make sure to press the rectangular stop button on the front panel.  This will properly shutdown the board so that it can run properly again after without rebooting/restarting labview.  
+
+12)  Troubleshooting:  
+  A)  Can ping the BBB, but Labview fails to connect to target.  Solution:  Restart labview on the BBB.  This is possible by right clicking on the target, and restarting labview, or easier from the terminal/putty:  
+  #~  systemctl restart labview.service
+  B)  Will add more when more problems arise
