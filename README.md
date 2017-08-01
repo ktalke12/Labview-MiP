@@ -78,4 +78,4 @@ Move one or all of the examples into the project.  Then, move them down to the t
   A)  Can ping the BBB, but Labview fails to connect to target.  
   Solution:  Restart labview on the BBB.  This is possible by right clicking on the target, and restarting labview, or easier from the terminal/putty:  
   #~  systemctl restart labview.service  
-  B)  Will add more when more problems arise
+  B)  DHCP errors, and unable to connect over 192.168.7.2.  This is a problem with compatability with Debian 8.8 and 9.1, which occurs after the device tree is enabled.  Currently, the only fix for this is to use Debian 8.6 or 8.7.
