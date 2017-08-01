@@ -65,7 +65,7 @@ If the libraries install without errors, you can move the SO and header files in
 Project:Untitled Project 1 >New >Targets and Devices...  
   
 Change to "New Target or Device", expand the "LINX" folder, and select BeagleBone Black.  
-Right click on the new BeagleBone Black(0.0.0.0) target and go to properties. 
+Right click on the new BeagleBone Black(0.0.0.0) target and go to properties:  
  
 BeagleBone Black(0.0.0.0)>Properties  
   
