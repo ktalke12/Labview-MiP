@@ -20,7 +20,7 @@ ucsd_robotics_lab_robotics_cape-1.0.1.3.vip:  This is a VI package file.  This i
 
 BBB/L Installation steps:  
 
-1)  Flash your BBB/L with the latest or preffered version of Debian (https://rcn-ee.com/rootfs/bb.org/testing/2017-03-07/iot/).   This repository should work with both 8.6 and 8.7 versions.  For 8.7 versions and later (~2/2017), the root password is locked down, and you will need to change the root password in order to install the Linx software below.  
+1)  Flash your BBB/L with the latest or preffered version of Debian (https://rcn-ee.com/rootfs/bb.org/testing/2017-03-07/iot/).   This repository should work with both 8.6 and 8.7 versions (currently, there are issues with 8.8 and 9.1 compatability).  For 8.7 versions and later (~2/2017), the root password is locked down, and you will need to change the root password in order to install the Linx software below.  
 
 2)  Enable the robotics cape device tree:  This will enable the robotics cape on the BBB/L.  
 #~ sudo configure_robotics_dt.sh  
@@ -33,7 +33,7 @@ http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#i_take_full_responsibility_
 
 Labview will create a Change root (chroot) on the BBB/L which is conceptually like a virtual machine.  This allows NI to control the user libraries, thus making configuration management easier, but development more challenging as basic user libraries are often missing
 
-5)  Install user libraries inside the Chroot:  SSH into your BBB/L from the terminal/putty. (#~ ssh root@192.168.7.2) and type in your password when prompted.  Then, enter the change root.  
+5)  Install user libraries inside the Chroot:  SSH into your BBB/L from the terminal/putty. (#~ ssh root@192.168.7.2) and type in your password when prompted (in the image uploaded, the password is temppwd).  Then, enter the change root.  
 #~ sudo schroot -r -c lv.  
 Then update and install packagegroup core buildessentials using opkg (note this may take 5-10min):  
 #~ okpg update  
